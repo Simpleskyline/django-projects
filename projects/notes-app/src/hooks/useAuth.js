@@ -3,17 +3,25 @@ import { apiPost } from "../utils/api";
 
 const TOKEN_KEY = "notes_access";
 const REFRESH_KEY = "notes_refresh";
+const DEV_MODE = true; // set to false when Django backend is ready
 
 export function useAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (DEV_MODE) {
+      setUser({ username: "devuser", id: 1 });
+      setLoading(false);
+      return;
+    }
     const token = localStorage.getItem(TOKEN_KEY);
     if (token) {
       fetchMe(token)
         .then(setUser)
-        .catch(() => { clearTokens(); })
+        .catch(() => {
+          clearTokens();
+        })
         .finally(() => setLoading(false));
     } else {
       setLoading(false);
@@ -29,6 +37,10 @@ export function useAuth() {
   };
 
   const login = async (username, password) => {
+    if (DEV_MODE) {
+      setUser({ username, id: 1 });
+      return;
+    }
     const data = await apiPost("/api/auth/token/", { username, password });
     localStorage.setItem(TOKEN_KEY, data.access);
     localStorage.setItem(REFRESH_KEY, data.refresh);
@@ -37,11 +49,19 @@ export function useAuth() {
   };
 
   const register = async (username, password) => {
+    if (DEV_MODE) {
+      setUser({ username, id: 1 });
+      return;
+    }
     await apiPost("/api/auth/register/", { username, password });
     await login(username, password);
   };
 
   const logout = () => {
+    if (DEV_MODE) {
+      setUser(null);
+      return;
+    }
     clearTokens();
     setUser(null);
   };
@@ -51,5 +71,5 @@ export function useAuth() {
 
 function clearTokens() {
   localStorage.removeItem(TOKEN_KEY);
-  localStorage.removeItem(TOKEN_KEY.replace("access", "refresh"));
+  localStorage.removeItem(REFRESH_KEY);
 }
