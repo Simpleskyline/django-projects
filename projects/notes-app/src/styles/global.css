@@ -1,43 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap");
 
 :root {
-  --bg:          #0e0e10;
-  --surface:     #17171a;
-  --surface-2:   #1f1f24;
-  --surface-3:   #28282f;
-  --border:      #2e2e38;
-  --border-faint:#222228;
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #111111;
+  --surface-3: #1a1a1a;
+  --border: #2a2a2a;
+  --border-faint: #161616;
 
-  --accent:      #6c63ff;
-  --accent-dim:  #6c63ff22;
-  --accent-glow: #6c63ff44;
+  --accent: #ffffff;
+  --accent-dim: #ffffff14;
+  --accent-glow: #ffffff22;
 
-  --text:        #e8e8f0;
-  --text-2:      #9898b0;
-  --text-3:      #5a5a72;
+  --text: #ffffff;
+  --text-2: #999999;
+  --text-3: #444444;
 
-  --tag-1: #3b82f6;
-  --tag-2: #10b981;
-  --tag-3: #f59e0b;
-  --tag-4: #ef4444;
-  --tag-5: #8b5cf6;
+  --tag-1: #888888;
+  --tag-2: #aaaaaa;
+  --tag-3: #666666;
+  --tag-4: #bbbbbb;
+  --tag-5: #777777;
 
   --radius: 6px;
   --sidebar-w: 220px;
   --list-w: 280px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -60,8 +64,15 @@ html, body, #root {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.2; transform: scale(0.8); }
-  50%       { opacity: 1;   transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 /* ---- Layout ---- */
@@ -79,9 +90,16 @@ html, body, #root {
 }
 
 /* ---- Scrollbar ---- */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
 
 /* ---- Buttons ---- */
 button {
@@ -95,20 +113,24 @@ button {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: #000;
   padding: 8px 16px;
   border-radius: var(--radius);
   font-weight: 500;
   transition: opacity 0.15s;
 }
 
-.btn-primary:hover { opacity: 0.85; }
+.btn-primary:hover {
+  opacity: 0.85;
+}
 
 .btn-ghost {
   color: var(--text-2);
   padding: 6px 10px;
   border-radius: var(--radius);
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .btn-ghost:hover {
@@ -117,7 +139,8 @@ button {
 }
 
 /* ---- Input base ---- */
-input, textarea {
+input,
+textarea {
   font-family: inherit;
   font-size: 14px;
   background: var(--surface-2);
@@ -128,11 +151,13 @@ input, textarea {
   transition: border-color 0.15s;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-color: var(--accent);
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   color: var(--text-3);
 }
 
@@ -152,7 +177,8 @@ input::placeholder, textarea::placeholder {
   transition: all 0.15s;
 }
 
-.tag:hover, .tag.active {
+.tag:hover,
+.tag.active {
   background: var(--accent-dim);
   border-color: var(--accent);
   color: var(--accent);

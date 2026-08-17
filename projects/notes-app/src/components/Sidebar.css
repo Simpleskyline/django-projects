@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 15px;
   font-weight: 500;
   color: var(--text);
@@ -45,7 +45,9 @@
   border-radius: var(--radius);
   color: var(--text-2);
   font-size: 13px;
-  transition: background 0.12s, color 0.12s;
+  transition:
+    background 0.12s,
+    color 0.12s;
   text-align: left;
 }
 
@@ -103,13 +105,15 @@
   padding: 8px 10px;
   border-radius: var(--radius);
   background: var(--accent);
-  color: #fff;
+  color: #000;
   font-size: 13px;
   font-weight: 500;
   transition: opacity 0.15s;
 }
 
-.new-note-btn:hover { opacity: 0.85; }
+.new-note-btn:hover {
+  opacity: 0.85;
+}
 
 .user-row {
   display: flex;
