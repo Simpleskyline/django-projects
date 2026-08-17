@@ -1,0 +1,133 @@
+.editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.editor-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.editor-empty-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-3);
+}
+
+.editor-empty-inner p {
+  font-size: 13px;
+}
+
+.editor-header {
+  padding: 24px 32px 12px;
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.editor-title {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.editor-title::placeholder { color: var(--text-3); }
+.editor-title:focus { outline: none; border: none; }
+
+.editor-meta {
+  display: flex;
+  gap: 12px;
+}
+
+.word-count {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--text-3);
+}
+
+/* ---- Tag bar ---- */
+.tag-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 32px;
+  border-bottom: 1px solid var(--border-faint);
+  min-height: 44px;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px 2px 9px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--chip-color) 12%, transparent);
+  color: var(--chip-color);
+  border: 1px solid color-mix(in srgb, var(--chip-color) 30%, transparent);
+}
+
+.tag-remove {
+  color: inherit;
+  opacity: 0.6;
+  padding: 1px;
+  display: flex;
+}
+
+.tag-remove:hover { opacity: 1; }
+
+.tag-input {
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  color: var(--text-2);
+  min-width: 80px;
+  padding: 2px 4px;
+}
+
+.tag-input:focus { outline: none; }
+.tag-input::placeholder { color: var(--text-3); }
+
+/* ---- Body ---- */
+.editor-body {
+  flex: 1;
+  padding: 24px 32px;
+  background: transparent;
+  border: none;
+  resize: none;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-2);
+  font-weight: 300;
+  overflow-y: auto;
+}
+
+.editor-body:focus { outline: none; border: none; }
+
+/* ---- Footer ---- */
+.editor-footer {
+  padding: 10px 32px;
+  border-top: 1px solid var(--border-faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-hint {
+  font-size: 10px;
+  color: var(--text-3);
+}
